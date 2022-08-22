@@ -1,0 +1,1 @@
+#define IDR_RDLL1 101
