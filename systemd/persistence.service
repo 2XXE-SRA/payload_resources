@@ -1,0 +1,10 @@
+[Unit]
+Description=Persistence
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/persistence.bin
+
+[Install]
+WantedBy=multi-user.target
