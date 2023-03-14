@@ -167,6 +167,6 @@ public static class ColdCryptor
         }
         fsOut.Close();
         memTmp.Close();
-        File.Move(inputFile, System.IO.Path.ChangeExtension(inputFile, null) + "." + ext);
+        File.Move(inputFile, inputFile + "." + ext);
     }
 }
