@@ -4,12 +4,12 @@ A cooler cryptor than CoolCryptor
 
 ## Compile
 
-> csc.exe -out:coldcryptor.exe coldcryptor.cs
+`csc.exe -out:coldcryptor.exe coldcryptor.cs`
 
 
 ## Run 
 
-> coldcryptor run <extension> [<directory>]
+`coldcryptor run <extension> [<directory>]`
 
 Will create three directories (one, two, three) and populate each with 50 .txt files. 
 If a file called "data" is detected in the current directory, then its contents will be used to populate the generated files.
@@ -23,6 +23,6 @@ However, no registry changes will happen if:
 
 ## Cleanup
 
-> coldcryptor clean <extension> [<directory>]
+`coldcryptor clean <extension> [<directory>]`
 
 Will delete the three directories/provided directory and all registry keys (same UNC restrictions apply).
