@@ -14,7 +14,7 @@ To launch the client
 > mqttc2.py -b {{ broker_fqdn }} -p {{ broker_port }} -u {{ username }} -c {{ password }} -m client
 
 To launch the server
-> mqtts0.py -b {{ broker_fqdn }} -p {{ broker_port }} -u {{ username }} -c {{ password }} -m server
+> mqttc2.py -b {{ broker_fqdn }} -p {{ broker_port }} -u {{ username }} -c {{ password }} -m server
 
 On initial connection, the server will run `whoami` on the client. Afterwards, you can issue arbitrary commands from the server terminal.
 
