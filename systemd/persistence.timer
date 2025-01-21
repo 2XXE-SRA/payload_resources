@@ -1,0 +1,10 @@
+[Unit]
+Description=Persistence Timer
+
+[Timer]
+Unit=persistence.service
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target
