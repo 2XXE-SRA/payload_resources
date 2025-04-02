@@ -59,11 +59,11 @@ def client_on_message(client, userdata, msg):
     client.publish("output", payload=cmdoutput)
 
 if args.mode == "server": 
-    client = mqtt.Client("server")
+    client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION1, "server")
     client.on_connect = srv_on_connect
     client.on_message = srv_on_message
 elif args.mode == "client":
-    client = mqtt.Client("client")
+    client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION1, "client")
     client.on_connect = client_on_connect
     client.on_message = client_on_message
 else:
