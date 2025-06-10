@@ -213,4 +213,6 @@ MputSetIfMinDWORDRpc="c:\Program Files\Windows Defender\MpClient.MputSetIfMinDWO
 MputSetStringRpc="c:\Program Files\Windows Defender\MpClient.MputSetStringRpc" @42
 WDEnable="c:\Program Files\Windows Defender\MpClient.WDEnable" @213
 WDStatus="c:\Program Files\Windows Defender\MpClient.WDStatus" @214
-
+MpServiceLogMessage="c:\Program Files\Windows Defender\MpClient.MpServiceLogMessage" @215
+MpGetNpSupportFile="c:\Program Files\Windows Defender\MpClient.MpGetNpSupportFile" @216
+MpEffectiveConfigurationReport="c:\Program Files\Windows Defender\MpClient.MpEffectiveConfigurationReport" @217
