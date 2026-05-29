@@ -1,4 +1,4 @@
 import os
 
-print("hello world")
-os.system("open /Applications/Calculator.app")
+os.system("open /System/Applications/Calculator.app")
+print("success")
