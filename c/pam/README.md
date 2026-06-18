@@ -1,6 +1,6 @@
 # PAM
 
-Build via: `gcc -fPIC -fno-stack-protector src.c` (requires libpam)
+Build via: `gcc -fPIC -fno-stack-protector -c src.c` (requires libpam)
 
 Load via (as root):
 
